@@ -1,38 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Minecraft Server</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        .online { color: green; font-weight: bold; }
-        .offline { color: red; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <h1>Server Status</h1>
-    <p>Status: <span id="status">Pinging server...</span></p>
-    <p>Players Online: <span id="players">0 / 0</span></p>
+<script>
+    const serverAddress = "engine-diane.gl.joinmc.link:25565";
 
-    <script>
-        const serverAddress = "engine-diane.gl.joinmc.link:25565"; 
+    fetch(`https://api.mcsrvstat.us/3/${serverAddress}`)
+        .then(response => response.json())
+        .then(data => {
+            const statusEl = document.getElementById("status");
+            const playersEl = document.getElementById("players");
 
-        fetch(`https://api.mcsrvstat.us/3/${serverAddress}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.online) {
-                    document.getElementById("status").textContent = "Online 🟢";
-                    document.getElementById("status").className = "online";
-                    document.getElementById("players").textContent = `${data.players.online} / ${data.players.max}`;
-                } else {
-                    document.getElementById("status").textContent = "Offline 🔴";
-                    document.getElementById("status").className = "offline";
-                    document.getElementById("players").textContent = "-";
-                }
-            })
-            .catch(error => {
-                document.getElementById("status").textContent = "Error fetching status";
-            });
-    </script>
-</body>
-</html>
+            if (data.online) {
+                statusEl.textContent = "Online 🟢";
+                statusEl.className = "online";
+                playersEl.textContent = `${data.players?.online ?? 0} / ${data.players?.max ?? 0}`;
+            } else {
+                statusEl.textContent = "Offline 🔴";
+                statusEl.className = "offline";
+                playersEl.textContent = "-";
+            }
+
+            // Debug info so you can see WHY it says what it says
+            const debug = data.debug || {};
+            const debugLine = document.createElement("p");
+            debugLine.style.fontSize = "0.8em";
+            debugLine.style.color = "#888";
+            debugLine.textContent =
+                `ping: ${debug.ping} | cachehit: ${debug.cachehit} | ` +
+                (debug.cachetime ? `cached at: ${new Date(debug.cachetime * 1000).toLocaleTimeString()}` : "");
+            document.body.appendChild(debugLine);
+        })
+        .catch(error => {
+            document.getElementById("status").textContent = "Error fetching status";
+            console.error(error);
+        });
+</script>
