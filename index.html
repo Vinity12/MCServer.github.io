@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Minecraft Server</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .online { color: green; font-weight: bold; }
+        .offline { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Server Status</h1>
+    <p>Status: <span id="status">Pinging server...</span></p>
+    <p>Players Online: <span id="players">0 / 0</span></p>
+
+    <script>
+        const serverAddress = "engine-diane.gl.joinmc.link"; 
+
+        fetch(`https://api.mcsrvstat.us/3/${serverAddress}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.online) {
+                    document.getElementById("status").textContent = "Online 🟢";
+                    document.getElementById("status").className = "online";
+                    document.getElementById("players").textContent = `${data.players.online} / ${data.players.max}`;
+                } else {
+                    document.getElementById("status").textContent = "Offline 🔴";
+                    document.getElementById("status").className = "offline";
+                    document.getElementById("players").textContent = "-";
+                }
+            })
+            .catch(error => {
+                document.getElementById("status").textContent = "Error fetching status";
+            });
+    </script>
+</body>
+</html>
