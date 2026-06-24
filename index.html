@@ -15,9 +15,9 @@
     <p>Players Online: <span id="players">0 / 0</span></p>
     
     <script>
-    const serverAddress = "engine-diane.gl.joinmc.link:25905";
+    const serverAddress = "147.185.221.29:38004";
 
-    fetch(`https://api.mcsrvstat.us/3/${serverAddress}`)
+    fetch(`https://api.mcsrvstat.us/bedrock/3/${serverAddress}`)
         .then(response => response.json())
         .then(data => {
             const statusEl = document.getElementById("status");
