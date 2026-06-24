@@ -17,7 +17,7 @@
     <script>
         const serverAddress = "engine-diane.gl.joinmc.link"; 
 
-        fetch(`https://api.mcsrvstat.us/simple/${serverAddress}`)
+        fetch(`https://api.mcsrvstat.us/3/${serverAddress}`)
             .then(response => response.json())
             .then(data => {
                 if (data.online) {
