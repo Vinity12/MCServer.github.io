@@ -2,51 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Minecraft Server</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        .online { color: green; font-weight: bold; }
-        .offline { color: red; font-weight: bold; }
-    </style>
+    <title>Eleven Server</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
-<body>
-    <h1>Server Status</h1>
-    <p>Status: <span id="status">Pinging server...</span></p>
-    <p>Players Online: <span id="players">0 / 0</span></p>
-    
-    <script>
-    const serverAddress = "147.185.221.29:38073";
+<body id="body">
+    <nav id="navigator">
+        <a class="navLink" href="#status_group">Status</a>
+        <a class="navLink" href="#features">Features</a>
+        <!--a class="navLink" href="#changelog">Changelog</a-->
+    </nav>
 
-    fetch(`https://api.mcsrvstat.us/bedrock/3/${serverAddress}`)
-        .then(response => response.json())
-        .then(data => {
-            const statusEl = document.getElementById("status");
-            const playersEl = document.getElementById("players");
+    <section id="status_group">
+        <h1>Server Status</h1>
+        <p id="status">Pinging server...</p>
+        <p>Players: <span id="players">0/0</span></p>
+        <div id="address">
+            <p id="clickInfo"><b>Click to copy to clipboard</b></p>
+            <p>Java: <button id="javaIP" onclick="copyToClipboard('javaIP')">boys-unblended.gl.joinmc.link</button></p>
+            <p>Bedrock: <button id="bedrockIP" onclick="copyToClipboard('bedrockIP')">147.185.221.29</button>
+                Port: <button id="port" onclick="copyToClipboard('port')">38073</button></p>
+        </div>
+        <p>Next check in: <span id="timer">0.00</span></p>
+    </section>
 
-            if (data.online) {
-                statusEl.textContent = "Online 🟢";
-                statusEl.className = "online";
-                playersEl.textContent = `${data.players?.online ?? 0} / ${data.players?.max ?? 0}`;
-            } else {
-                statusEl.textContent = "Offline 🔴";
-                statusEl.className = "offline";
-                playersEl.textContent = "-";
-            }
+    <section id="features">
+        <h1>Features</h1>
+        <ul>
+            <h2>Player</h2>
+            <li>Ketika mati beberapa item yang dibawa memiliki kemungkinan untuk di drop</li>
+            <li>Click untuk duduk di stairs</li>
+            <li>Cara enchant baru</li>
+            <li>Crop tidak hancur ketika diinjak player</li>
 
-            // Debug info so you can see WHY it says what it says
-            const debug = data.debug || {};
-            const debugLine = document.createElement("p");
-            debugLine.style.fontSize = "0.8em";
-            debugLine.style.color = "#888";
-            debugLine.textContent =
-                `ping: ${debug.ping} | cachehit: ${debug.cachehit} | ` +
-                (debug.cachetime ? `cached at: ${new Date(debug.cachetime * 1000).toLocaleTimeString()}` : "");
-            document.body.appendChild(debugLine);
-        })
-        .catch(error => {
-            document.getElementById("status").textContent = "Error fetching status";
-            console.error(error);
-        });
-</script>
+            <h2>World</h2>
+            <li>Pintu double otomatis dibuka</li>
+
+            <h2>Item</h2>
+            <li>10 enchantment baru</li>
+            <li>Goat horn dapat digunakan untuk memanggil hewan kendaraan</li>
+
+            <h2>Command</h2>
+            <li>/ sleep untuk tidur tanpa bed</li>
+            <li>/ recall untuk teleport ke spawnpoint</li>
+            <li>/ sit untuk duduk</li>
+
+            <h2>Enchantment</h2>
+            <div id="enchantments">
+                <li>
+                    <h3>Golden Heart</h3>
+                    </p>Menambah maximum darah<p>
+                    <p>Max level: V</p>
+                    <img class="recipe" src="Images/Recipe/Golden_Heart.jpeg">
+                </li>
+                <li>
+                    <h3>Soulbound</h3>
+                    </p>Item tidak akan didrop ketika mati<p>
+                    <p>Max level: I</p>
+                    <img class="recipe" src="Images/Recipe/Soulbound.jpeg">
+                </li>
+                <li>
+                    <h3>Conservation</h3>
+                    </p>Bow memiliki kemungkinan untuk tidak menggunakan arrow<p>
+                    <p>Max level: III</p>
+                    <img class="recipe" src="Images/Recipe/Conservation.jpeg">
+                </li>
+                <li>
+                    <h3>Conductive</h3>
+                    </p>Trident menyatrum mob disekitarnya<p>
+                    <p>Max level: IV</p>
+                    <img class="recipe" src="Images/Recipe/Conductive.jpeg">
+                </li>
+                <li>
+                    <h3>Extension</h3>
+                    </p>Menambah jarak tools<p>
+                    <p>Max level: II</p>
+                    <img class="recipe" src="Images/Recipe/Extension.jpeg">
+                </li>
+                <li>
+                    <h3>Counter  Attack</h3>
+                    </p>Shield memberi strength ketika memblokir attack<p>
+                    <p>Max level: III</p>
+                    <img class="recipe" src="Images/Recipe/Counter.jpeg">
+                </li>
+                <li>
+                    <h3>Deflect</h3>
+                    </p>Shield memantulkan projectile<p>
+                    <p>Max level: III</p>
+                    <img class="recipe" src="Images/Recipe/Deflect.jpeg">
+                </li>
+                <li>
+                    <h3>Decay</h3>
+                    </p>Serangan memberi effect wither<p>
+                    <p>Max level: III</p>
+                    <img class="recipe" src="Images/Recipe/Decay.jpeg">
+                </li>
+                <li>
+                    <h3>Lifesteal</h3>
+                    </p>Serangan memiliki kemungkinan untuk mengisi darah<p>
+                    <p>Max level: IV</p>
+                    <img class="recipe" src="Images/Recipe/Lifesteal.jpeg">
+                </li>
+                <li>
+                    <h3>All Knowing</h3>
+                    </p>Menambah exp yang didapat<p>
+                    <p>Max level: II</p>
+                    <img class="recipe" src="Images/Recipe/All_Knowing.jpeg">
+                </li>
+            </div>
+        </ul>
+    </section>
+
+    <script src="dynamy.js"></script>
 </body>
 </html>

@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url(Fonts/Montserrat-Black.otf);
+}
+
+@font-face {
+    font-family: montserrat-light;
+    src: url(Fonts/Montserrat-Light.otf);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: montserrat-light;
+    color: white;
+    text-align: center;
+}
+
+#body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#navigator {
+    position: fixed;
+    display: flex;
+    justify-content: right;
+    padding: 0 0.7rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0.7rem;
+
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 0.2s;
+}
+
+.navLink:hover {
+    font-size: 1.25rem;
+    background-color: rgba(120, 180, 206, 0.189);
+    color: rgb(255, 220, 94);
+}
+ 
+#status_group {
+    justify-self: center;
+    margin: 40vh 0;
+    padding: 2rem 1.2rem;
+    width: fit-content;
+    scroll-margin-top: 50vh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+#status_group p {
+    margin: 0.4rem;
+}
+
+h1 {
+    font-family: montserrat;
+    margin-bottom: 1.2rem;
+}
+
+h2 {
+    font-family: montserrat;
+    margin-top: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+h3 {
+    font-family: montserrat;
+}
+
+#clickInfo {
+    font-size: 0.8rem;
+    color: rgb(194, 194, 194);
+}
+
+#address {
+    margin: 1rem 0;
+}
+
+#javaIP, #bedrockIP, #port {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    font-family: montserrat-light;
+    font-size: 1rem;
+    color: rgb(255, 235, 102);
+    transition: all 0.3s;
+}
+
+#javaIP:hover, #bedrockIP:hover, #port:hover {
+    color: rgb(33, 255, 185);
+}
+
+#status {
+    font-size: 1.2rem;
+}
+
+.online { 
+    color: rgb(140, 241, 78); font-weight: bold;
+}
+
+.offline { 
+    color: rgb(255, 0, 38); font-weight: bold; 
+}
+
+
+#features {
+    background-color: rgba(13, 16, 34, 0.7);
+    backdrop-filter: blur(2px)s;
+
+    padding: 1.5rem 10vw;
+}
+
+@media only screen and (max-width: 700px) {
+    #features {
+        background-color: rgba(13, 16, 34, 0.7);
+        backdrop-filter: blur(2px)s;
+
+        padding: 1.5rem 0;
+    }
+}
+
+ul {
+    text-align: left;
+
+    list-style-type: disc;
+    padding: 0 3rem !important;
+}
+
+section {
+    scroll-margin-top: 2.4rem;
+}
+
+#features li {
+    line-height: 1.6rem;
+}
+
+#enchantments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+#enchantments li {
+    background-color: rgba(9, 10, 16, 0.5);
+    border-radius: 10px;
+
+    text-align: center;
+    margin: 2rem;
+    padding: 1rem;
+    width: 30vh;
+    height: fit-content;
+}
+
+#enchantments li h3 {
+    margin: 0.8rem;
+}
+
+#enchantments li img {
+    margin: 1rem;
+}
+
+.recipe {
+    object-fit: cover;
+    width: 20vh;
+    height: 20vh;
+}
