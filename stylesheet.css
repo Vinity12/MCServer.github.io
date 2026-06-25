@@ -138,7 +138,7 @@ h3 {
 @media only screen and (max-width: 700px) {
     #features {
         background-color: rgba(13, 16, 34, 0.7);
-        backdrop-filter: blur(2px)s;
+        backdrop-filter: blur(2px);
 
         padding: 1.5rem 0;
     }
