@@ -60,7 +60,8 @@ function randomizeBackground() {
         "Images/Night_Moon.png", 
         "Images/Ocean_Sun.png", 
         "Images/Sunset.png", 
-        "Images/Water.png"
+        "Images/Water.png",
+        "Images/Blackhole.png"
     ];
 
     const parent = document.getElementById("body");

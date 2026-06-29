@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleven Server</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7leven Server</title>
 </head>
 <body id="body">
     <nav id="navigator">
         <a class="navLink" href="#status_group">Status</a>
         <a class="navLink" href="#features">Features</a>
-        <!--a class="navLink" href="#changelog">Changelog</a-->
+        <a class="navLink" href="update.html">Updates</a>
     </nav>
 
     <section id="status_group">
@@ -31,12 +31,16 @@
         <ul>
             <h2>Player</h2>
             <li>Ketika mati beberapa item yang dibawa memiliki kemungkinan untuk di drop</li>
-            <li>Click untuk duduk di stairs</li>
+            <li>Click dengan tangan kosong untuk duduk di stairs</li>
             <li>Cara enchant baru</li>
             <li>Crop tidak hancur ketika diinjak player</li>
 
             <h2>World</h2>
             <li>Pintu double otomatis dibuka</li>
+
+            <h2>Mob</h2>
+            <li>Wither mendapatkan kemampuan baru yang membuat perlawanan menjadi lebih sulit</li>
+            <li>Wither bisa ngedrop item lain selain Nether Star</li>
 
             <h2>Item</h2>
             <li>10 enchantment baru</li>
@@ -49,65 +53,147 @@
 
             <h2>Enchantment</h2>
             <div id="enchantments">
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Golden Heart</h3>
-                    </p>Menambah maximum darah<p>
-                    <p>Max level: V</p>
-                    <img class="recipe" src="Images/Recipe/Golden_Heart.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Menambah maximum darah</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Chestplate.png">
+                        </div>
+                        <p class="level">Max level: V</p>
+                        <img class="recipe" src="Images/Recipe/Golden_Heart.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Soulbound</h3>
-                    </p>Item tidak akan didrop ketika mati<p>
-                    <p>Max level: I</p>
-                    <img class="recipe" src="Images/Recipe/Soulbound.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Item tidak akan didrop ketika mati</p>
+                        <div class="compat">
+                            Compatible: Most
+                        </div>
+                        <p class="level">Max level: I</p>
+                        <img class="recipe" src="Images/Recipe/Soulbound.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Conservation</h3>
-                    </p>Bow memiliki kemungkinan untuk tidak menggunakan arrow<p>
-                    <p>Max level: III</p>
-                    <img class="recipe" src="Images/Recipe/Conservation.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Bow memiliki kemungkinan untuk tidak menggunakan arrow</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Bow.png">
+                        </div>
+                        <p class="incompat"> Incompatible: Infinity</p>
+                        <p class="level">Max level: III</p>
+                        <img class="recipe" src="Images/Recipe/Conservation.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Conductive</h3>
-                    </p>Trident menyatrum mob disekitarnya<p>
-                    <p>Max level: IV</p>
-                    <img class="recipe" src="Images/Recipe/Conductive.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Trident menyetrum mob disekitarnya</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Trident.png">
+                        </div>
+                        <p class="incompat"> Incompatible: Riptide</p>
+                        <p class="level">Max level: V</p>
+                        <img class="recipe" src="Images/Recipe/Conductive.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Extension</h3>
-                    </p>Menambah jarak tools<p>
-                    <p>Max level: II</p>
-                    <img class="recipe" src="Images/Recipe/Extension.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Menambah jarak tools</p>
+                        <div class="compat">
+                            Compatible: 
+                            <img class="itemIcon" src="Images/Icon/Pickaxe.png">
+                            <img class="itemIcon" src="Images/Icon/Axe.png">
+                            <img class="itemIcon" src="Images/Icon/Shovel.png">
+                            <img class="itemIcon" src="Images/Icon/Hoe.png">
+                        </div>
+                        <p class="level">Max level: II</p>
+                        <img class="recipe" src="Images/Recipe/Extension.jpeg">
+                    </div>
                 </li>
-                <li>
-                    <h3>Counter  Attack</h3>
-                    </p>Shield memberi strength ketika memblokir attack<p>
-                    <p>Max level: III</p>
-                    <img class="recipe" src="Images/Recipe/Counter.jpeg">
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
+                    <h3>Counter Attack</h3>
+                    <div class="tooltipContent">
+                        <p class="desc">Shield memberi strength ketika memblokir attack</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Shield.png">
+                        </div>
+                        <p class="level">Max level: III</p>
+                        <img class="recipe" src="Images/Recipe/Counter.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Deflect</h3>
-                    </p>Shield memantulkan projectile<p>
-                    <p>Max level: III</p>
-                    <img class="recipe" src="Images/Recipe/Deflect.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Shield memantulkan projectile</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Shield.png">
+                        </div>
+                        <p class="level">Max level: V</p>
+                        <img class="recipe" src="Images/Recipe/Deflect.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Decay</h3>
-                    </p>Serangan memberi effect wither<p>
-                    <p>Max level: III</p>
-                    <img class="recipe" src="Images/Recipe/Decay.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Serangan memberi effect wither</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/sword.png">
+                        </div>
+                        <p class="incompat"> Incompatible: Fire Aspect</p>
+                        <p class="level">Max level: III</p>
+                        <img class="recipe" src="Images/Recipe/Decay.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>Lifesteal</h3>
-                    </p>Serangan memiliki kemungkinan untuk mengisi darah<p>
-                    <p>Max level: IV</p>
-                    <img class="recipe" src="Images/Recipe/Lifesteal.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Serangan memiliki kemungkinan untuk mengisi darah<p>
+                        <div class="compat">
+                            Compatible: 
+                            <img class="itemIcon" src="Images/Icon/sword.png">
+                            <img class="itemIcon" src="Images/Icon/Axe.png">
+                            <img class="itemIcon" src="Images/Icon/Mace.png">
+                        </div>
+                        <p class="level">Max level: IV</p>
+                        <img class="recipe" src="Images/Recipe/Lifesteal.jpeg">
+                    </div>
                 </li>
-                <li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
                     <h3>All Knowing</h3>
-                    </p>Menambah exp yang didapat<p>
-                    <p>Max level: II</p>
-                    <img class="recipe" src="Images/Recipe/All_Knowing.jpeg">
+                    <div class="tooltipContent">
+                        <p class="desc">Menambah exp yang didapat</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Helmet.png">
+                        </div>
+                        <p class="level">Max level: II</p>
+                        <img class="recipe" src="Images/Recipe/All_Knowing.jpeg">
+                    </div>
+                </li>
+                <li class="tooltip">
+                    <img class="enchantedBook" src="Images/Gif/Enchanted_Book.gif" alt="Golden Heart">
+                    <h3>Quickstep</h3>
+                    <div class="tooltipContent">
+                        <p class="desc">Naik 1 blok otomatis seperti naik stairs</p>
+                        <div class="compat">
+                            Compatible: <img class="itemIcon" src="Images/Icon/Legging.png">
+                        </div>
+                        <p class="level">Max level: II</p>
+                        <img class="recipe" src="Images/Recipe/Quickstep.jpeg">
+                    </div>
                 </li>
             </div>
         </ul>
